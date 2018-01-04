@@ -111,7 +111,7 @@ export class MovieFormComponent implements OnInit {
       'pattern': 'budget must be a number'
     },
     'releaseDate': {
-      'pattern': 'Release date should be in the following format: YYYY-MM-DD'
+      'pattern': 'Release date should be in the following format: MM/DD/YYYY'
     }
   };
 

@@ -1,0 +1,41 @@
+<section @fadeInAnimation>
+  <ol class="breadcrumb">
+    <li>
+      <a routerLink="/home">Home</a>
+    </li>
+    <li>
+      <a routerLink="/actor">Actors</a>
+    </li>
+    <li class="active">Add Award</li>
+  </ol>
+
+  <a class="btn btn-primary" routerLink="/actor">Return to Actors</a>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+  <h1>Add an Award</h1>
+  <form class="form-horizontal" #awardForm="ngForm" (ngSubmit)="saveAward(awardForm)">
+    <div class="form-group">
+      <label for="inputOrganization" class="col-sm-2 control-label">Organization</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputOrganization" name="organization" ngModel #organization="ngModel"
+          placeholder="Organization" required minlength="2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputTitle" name="title" ngModel #title="ngModel"
+          placeholder="Title" required minlength="2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="year" class="col-sm-2 control-label">Year</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="year" name="year" ngModel #activeSinceYear="ngModel" placeholder="Year">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add Award</button>
+      </div>
+    </div>
+  </form>
