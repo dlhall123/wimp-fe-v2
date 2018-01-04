@@ -55,6 +55,7 @@ export class ActorFormComponent implements OnInit {
         actor => this.successMessage = "Record added successfully",
         error => this.errorMessage = <any>error);
       this.updateActor = {};
+      this.actorForm.form.markAsPristine();
     }
 
   }

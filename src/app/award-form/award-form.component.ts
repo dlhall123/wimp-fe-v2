@@ -14,10 +14,9 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
   animations: [fadeInAnimation]
 })
 export class AwardFormComponent implements OnInit {
-  actorForm: NgForm;
-  @ViewChild('actorForm')
+  awardForm: NgForm;
+  @ViewChild('awardForm')
   currentForm: NgForm;
-
   successMessage: string;
   errorMessage: string;
   actorId;
@@ -37,7 +36,52 @@ export class AwardFormComponent implements OnInit {
         .subscribe(
         actor => this.successMessage = "Record updated successfully",
         error => this.errorMessage = <any>error);
-
   }
+
+  ngAfterViewChecked() {
+    this.formChanged();
+  }
+
+  formChanged() {
+    this.awardForm = this.currentForm;
+    this.awardForm.valueChanges
+      .subscribe(
+      data => this.onValueChanged()
+      );
+  }
+
+  onValueChanged() {
+    let form = this.awardForm.form;
+
+    for (let field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+  formErrors = {
+    'organization': '',
+    'lastName': '',
+    'title': ''
+  };
+
+  validationMessages = {
+    'organization': {
+      'required': 'Organization is required.',
+      'minlength': 'Organization must be at least 2 characters long.'
+    },
+    'title': {
+      'required': 'Title is required.',
+      'minlength': 'Title must be at least 2 characters long.'
+    }
+  };
 
 }
