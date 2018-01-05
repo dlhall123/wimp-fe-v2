@@ -5,7 +5,6 @@ import { RouterModule }   from '@angular/router';
 import { MatDialogModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -40,7 +39,6 @@ import { AwardFormComponent } from './award-form/award-form.component';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    DataTablesModule
   ],
   entryComponents: [DeleteConfirmComponent],
   providers: [DataService],
