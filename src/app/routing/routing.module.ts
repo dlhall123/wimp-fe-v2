@@ -7,6 +7,7 @@ import { ActorComponent } from '../actor/actor.component';
 import { ActorFormComponent } from '../actor-form/actor-form.component'
 import { HomeComponent }   from '../home/home.component';
 import { AwardFormComponent } from 'app/award-form/award-form.component';
+import { MovieActorComponent } from 'app/movie-actor/movie-actor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'actor/edit/:id', component: ActorFormComponent },
   { path: 'movie/edit/:id', component: MovieFormComponent },
   { path: 'movie/add', component: MovieFormComponent },
-  { path: 'actor/award/:id', component: AwardFormComponent}
+  { path: 'actor/award/:id', component: AwardFormComponent},
+  { path: 'movie/addactor/:id', component: MovieActorComponent }
 ];
 
 @NgModule({

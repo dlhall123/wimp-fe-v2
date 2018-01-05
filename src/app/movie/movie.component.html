@@ -30,6 +30,7 @@
         <td>{{movie.releaseDate | date }}</td>
         <td class="text-center">
           <a class="btn btn-primary" [routerLink]="['/movie/edit/', movie.id]">Edit</a>&nbsp;
+          <a class="btn btn-success" [routerLink]="['/movie/addactor/', movie.id]">Add Actor</a>&nbsp;
           <button (click)="deleteMovie(movie.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
