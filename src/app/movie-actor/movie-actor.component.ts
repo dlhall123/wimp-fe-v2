@@ -22,6 +22,14 @@ export class MovieActorComponent implements OnInit {
   errorMessage: string;
 
   movieId: number;
+  actors;
+
+  getActors() {
+    this.dataService.getRecords("actors")
+      .subscribe(
+      actors => console.log(this.actors = actors),
+      error => this.errorMessage = <any>error);
+  }
 
   constructor(
     private dataService: DataService,
@@ -34,9 +42,11 @@ export class MovieActorComponent implements OnInit {
       .subscribe((params: Params) => {
         this.movieId = +params['id'];
       });
+      this.getActors();
   }
 
   saveActorToMovie(movieActorForm: NgForm) {
+    console.log(movieActorForm.value);
     this.dataService.addRecord(`movies/${this.movieId}/actors`, movieActorForm.value)
       .subscribe(
       actor => this.successMessage = "Record updated successfully",

@@ -23,7 +23,7 @@ export class MovieComponent implements OnInit {
   getMovies() {
     this.dataService.getRecords("movies")
       .subscribe(
-        movies => this.movies = movies,
+        movies => console.log(this.movies = movies),
         error =>  this.errorMessage = <any>error);
   }
 

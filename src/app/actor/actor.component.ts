@@ -18,7 +18,7 @@ export class ActorComponent implements OnInit {
 
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
-  getMovies() {
+  getActors() {
     this.dataService.getRecords("actors")
       .subscribe(
       actors => this.actors = actors,
@@ -35,7 +35,7 @@ export class ActorComponent implements OnInit {
           .subscribe(
           movie => {
             this.successMessage = "Record(s) deleted successfully";
-            this.getMovies();
+            this.getActors();
           },
           error => this.errorMessage = <any>error);
       }
@@ -43,7 +43,7 @@ export class ActorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMovies();
+    this.getActors();
   }
 
 }
